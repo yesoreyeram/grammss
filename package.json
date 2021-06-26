@@ -12,7 +12,9 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "postbuild": "cpy src '!**/*.ts' dist && cpy src/runtime.ts src/dev-server.ts dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -24,5 +26,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "cpy-cli": "^3.1.1",
+    "rimraf": "^3.0.2"
   }
 }
